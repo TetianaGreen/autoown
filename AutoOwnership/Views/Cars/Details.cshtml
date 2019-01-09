@@ -1,0 +1,53 @@
+﻿@model AutoOwnership.Models.Car
+
+<h2>Car details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Raw("Model")
+        </dt>
+
+        <dd>
+            @Model.Model.Name
+        </dd>
+
+        <dt>
+            @Html.Raw("Brand")
+        </dt>
+
+        <dd>
+         @Model.Model.Brand.Name
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model.CarType)
+        </dt>
+
+        <dd>
+          @Model.Model.CarType
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearOfIssue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearOfIssue)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CarId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

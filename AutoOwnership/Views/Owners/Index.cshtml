@@ -1,0 +1,58 @@
+﻿@model IEnumerable<AutoOwnership.Models.Owner>
+
+<h2>List of car owners</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DrivingExperience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cars)
+        </th>
+        <th>
+            @Html.Raw("Actions")
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DrivingExperience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+
+                <div>@item.Cars.Count</div>
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OwnerId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OwnerId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OwnerId })
+            </td>
+        </tr>
+    }
+</table>
+
+

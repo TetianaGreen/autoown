@@ -1,0 +1,103 @@
+﻿@model AutoOwnership.Models.Owner
+
+
+<h2>Owner details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DrivingExperience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DrivingExperience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+        <dt>
+
+        </dt>
+        <dd>
+
+    </dl>
+</div>
+@if (Model.Cars.Count == 0)
+{
+<p>No cars yet</p>
+}
+else
+{ 
+<p>List of cars</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.Raw("Model")
+        </th>
+        <th>
+            @Html.Raw("Brand")
+        </th>
+        <th>
+            @Html.Raw("Type")
+        </th>
+        <th>
+            @Html.Raw("Price")
+        </th>
+        <th>
+            @Html.Raw("YearOfIssue")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var car in Model.Cars)
+    {
+        <tr>
+            <td>
+                @car.Model.Name
+            </td>
+            <td>
+                @car.Model.Brand.Name
+            </td>
+            <td>
+                @car.Model.CarType.ToString()
+            </td>
+            <td>
+                @car.Price.ToString()
+            </td>
+            <td>
+                @car.YearOfIssue.ToString()
+            </td>
+            <td>
+        </tr>
+    }
+
+</table>
+}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OwnerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
